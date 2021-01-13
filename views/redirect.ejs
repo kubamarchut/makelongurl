@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <title>makelongurl</title>
+  <style>
+  body{
+    font-size: 1.15em;
+  }
+  .potentially-harmful{
+    display: inline;
+    color: #F9A439;
+    font-weight: 900;
+    text-shadow: 0px 0px 5px rgb(255 255 255);
+  }
+  .not-safe{
+    display: inline;
+    color: #EB550A;
+    font-weight: 900;
+    text-shadow: 0px 0px 5px rgb(255 255 255);
+  }
+  .dangerous{
+    display: inline;
+    color: #ED1000;
+    font-weight: 900;
+    text-shadow: 0px 0px 5px rgb(255 255 255);
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">
+      <h1>makelongurl</h1>
+    </a>
+  </header>
+  <section>
+    <img class="img_hero" src="/assets/img/url_icon.svg" alt="place for url icon">
+    <p>The link you entered leads to <h1  class="<%= rating %>" ><%= url %></h1> </p><p>which is marked as <span class="<%= rating %>"><%= ratingDes %></span></p>
+    <p>Are you sure you want to enter that webiste?</p>
+    <a class="cta-button" href="https://<%= url %>">Yes, take me there!</a>
+  </section>
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="/termsofusage">Terms of usage</a></li>
+        <li><a href="/abouttheproject">About the project</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    Copyright © Jakub Marchut 2020 All Rights Reserved
+  </footer>
+  <script>
+
+  </script>
+  <script src="/assets/js/frontend.js"></script>
+</body>
+</html>

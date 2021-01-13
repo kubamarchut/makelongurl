@@ -33,12 +33,12 @@ section{
   padding: 30px
 }
 section{
-  background: url("../img/bg-1.svg");
+  background: url("/img/bg-1.svg");
   background-size: cover;
   background-position: center;
 }
 section:last-of-type{
-  background: #b4c5e4 url("../img/bg-2.svg");
+  background: #b4c5e4 url("/img/bg-2.svg");
   background-size: cover;
   background-position: center;
 }

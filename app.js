@@ -19,8 +19,9 @@ const colors = require('colors');
 const handlingDb = require('./db/handling-db.js');
 const auth0Api = require('./api/auth0-api.js');
 
-const app = express();
+const listofsubpage = ["termsofusage", "abouttheproject", "contact"]
 
+const app = express();
 const PORT = process.env.PORT || 80;
 
 
@@ -39,7 +40,7 @@ app.get('/favicon.ico', function(req, res) {
 });
 app.get('/:urlCode', async function(req, res) {
   let param = req.params.urlCode;
-  if(param[0] != '#' && param.length > 0){
+  if(param[0] != '#' && param.length > 0 && listofsubpage.indexOf(param) == -1){
     console.log("Requesting".yellow, "redirection with code", String(param).cyan)
     let foundWithSameCode = await handlingDb.findInDb({urlCode: param});
     if(foundWithSameCode.length > 0){
@@ -82,6 +83,9 @@ app.get('/:urlCode', async function(req, res) {
       res.render("url-not-found");
     }
   }
+  else if(listofsubpage.indexOf(param) != -1){
+    res.render(param);
+  }
 });
 
 app.post('/createNewUrl', async function(req, res){
@@ -108,19 +112,24 @@ app.post('/createNewUrl', async function(req, res){
       let urlCode = generateString(data.urlLength);
     }
     console.log("Acquiring safety rating");
-    let safetyRating = {
-      rating: await auth0Api.checkUrl(data.destUrl),
-      ratingDate: Date.now()
-    }
-    console.log("Saving recipe to DB")
-    let doneSaving = await handlingDb.saveToDb(data.destUrl, urlCode, safetyRating)
-    if(doneSaving){
-      res.send({'error': false, 'msg': urlCode})
-      console.log("Successfully".green, "saved new recipe on", "DB".magenta)
-    }
-    else {
-      res.send({'error': true, 'msg': "Something went wrong while saving new url to db"})
-      console.err("Something went wrong while saving new url to db")
-    }
+    let isItReal = auth0Api.checkUrl(data.destUrl);
+    isItReal.then((rate)=>{
+      let safetyRating = {
+        rating: rate,
+        ratingDate: Date.now()
+      }
+      console.log("Saving recipe to DB")
+      let doneSaving = handlingDb.saveToDb(data.destUrl, urlCode, safetyRating)
+      doneSaving.then(()=>{
+        res.send({'error': false, 'msg': urlCode})
+        console.log("Successfully".green, "saved new recipe on", "DB".magenta)
+      }).catch(()=>{
+        res.send({'error': true, 'msg': "Something went wrong while saving new url to db"})
+        console.log("Something went wrong while saving new url to db")
+      })
+    }).catch(()=>{
+      res.send({'error': true, 'msg': "I couldn't find your website 🕵, make sure you didn't misspell it and try again 🤞"})
+      console.log("Something went wrong while getting safety rating new url to db")
+    })
   }
 });

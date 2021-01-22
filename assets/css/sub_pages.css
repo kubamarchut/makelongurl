@@ -1,0 +1,15 @@
+.subpage-section{
+  min-height: 0 !important;
+  height: 100vh;
+}
+.encourage{
+  justify-self: start;
+}
+footer{
+  background: #fff;
+  color: #090c9b;
+  padding: 10px;
+}
+footer *{
+  color: #090c9b !important;
+}

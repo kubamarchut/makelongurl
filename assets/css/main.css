@@ -73,6 +73,7 @@ section#form .img_hero{
 }
 .encourage{
   grid-area: paragraph;
+  justify-self: start;
 }
 .encourage h1{
   font-size: 1.8em;

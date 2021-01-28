@@ -12,6 +12,7 @@ function getDate(){
   return date.toUTCString();
 }
 const express = require('express');
+const favicon = require('serve-favicon')
 const bodyparser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -28,12 +29,12 @@ const PORT = process.env.PORT || 80;
 var server = app.listen(PORT, console.log('WebServer'.magenta, 'started'.green, 'on port', String(PORT).cyan));
 
 app.set('view engine', 'ejs');
-
+app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico')))
 app.use('/assets', express.static('assets'));
 app.use(bodyparser.json());
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + "/index.html"));
+  res.render('index');
 });
 app.get('/favicon.ico', function(req, res) {
   res.sendFile(path.join(__dirname + "/assets/favicon.ico"));

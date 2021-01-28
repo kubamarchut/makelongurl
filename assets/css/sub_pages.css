@@ -1,14 +1,21 @@
+body{
+  background: linear-gradient(90deg, #090c9b, #57b9ff);
+}
 .subpage-section{
   min-height: 0 !important;
-  height: 100vh;
+  height: 85vh;
 }
 .encourage{
   justify-self: start;
 }
 footer{
   background: #fff;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 60%, rgba(0,0,0,0) 60%);
   color: #090c9b;
-  padding: 10px;
+}
+footer .wave{
+  transform: rotate(0deg);
+  top: 1px;
 }
 footer *{
   color: #090c9b !important;

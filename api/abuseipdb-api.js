@@ -1,7 +1,7 @@
 const unirest = require("unirest");
 const dns = require('dns');
 
-const api_url = "https://signals.api.auth0.com/v2.0/ip/";
+const api_url = "https://api.abuseipdb.com/api/v2/check/";
 
 function lookup(domain) {
   return new Promise((resolve, reject) => {
@@ -19,17 +19,19 @@ const checkUrl = function(urlToBeChecked){
   return new Promise((resolve, reject) => {
     let ip = lookup(urlToBeChecked);
     ip.then((res)=>{
-      let req = unirest("GET", api_url + res.address);
+      let req = unirest("GET", api_url);
         req.headers({
           "accept": "application/json",
-          "x-auth-token": "dab988b5-d32d-4fbb-9576-c326d1bb92ef"
+          "key": "ee769908e8567d24965cdeba485e2e164106ade8016176eda6492741ce745f21b0e51b6c939f11ab"
         });
+        req.query({"ipAddress": res.address});
         req.end((res, err) => {
           if (err) {
             reject(err)
           }
           else{
-            resolve(res.body.fullip.score)
+            console.log(res.body);
+            resolve(Math.floor((res.body.data.abuseConfidenceScore-25)/25))
           }
         });
     }).catch(()=>{reject(false)})

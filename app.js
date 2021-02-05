@@ -18,7 +18,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const colors = require('colors');
 const handlingDb = require('./db/handling-db.js');
-const auth0Api = require('./api/auth0-api.js');
+const auth0Api = require('./api/abuseipdb-api.js');
 
 const listofsubpage = ["termsofusage", "abouttheproject", "contact"]
 

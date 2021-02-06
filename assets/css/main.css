@@ -13,7 +13,7 @@ body{
   font-size: 1.15em;
   min-height: 100vh;
 }
-h1, h2{
+h1, h2, h3{
   font-size: 2.75em;
   font-family: 'Comfortaa', cursive;
   color: #090c9b;
@@ -250,7 +250,7 @@ nav ul li{
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
-  width: auto;
+  width: 450px;
   max-width: calc(100vw - 30px);
   height: 50vh;
   z-index: 10;
@@ -622,6 +622,9 @@ button.disabled svg{
     .subpage-section{
       min-height: 0 !important;
       height: calc(100vh - 200px);
+    }
+    .page:last-child{
+      padding: 60px 20px !important;
     }
 }
 @media (min-width: 64em) {

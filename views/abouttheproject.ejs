@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/cbd9dddf9b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/sub_pages.css">
+  <title>about the project - makelongurl</title>
+  <style>
+    section{
+      grid-template-areas:
+        "header header"
+        "logo paragraph"
+        "logo paragraph"
+        ". ." !important;
+    }
+    .far, .fab{
+      font-size: 2rem;
+      vertical-align: middle;
+      padding: 0 0 5px 0;
+      margin: 0 5px 0 0;
+    }
+    .encourage p:first-of-type{
+      margin: 10px 0 20px 0;
+    }
+    h1, .encourage h2, h3{
+      color: #090c9b !important;
+    }
+    .encourage{
+      padding: 0;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      position: relative;
+      margin-top: 50px;
+      height: calc(100% - 50px);
+      overflow: auto;
+      align-self: start;
+      scroll-behavior: smooth;
+    }
+    .encourage h2{
+      margin: 0;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      padding: 1rem 30px;
+      background: #fff;
+      font-size: 1.8em;
+      box-shadow: 0 5px 10px -10px #3d3d3d;
+    }
+    .encourage h1{
+      margin: 30px 30px 0;
+    }
+    .encourage p{
+      margin: 0 !important;
+      padding: 10px 30px 20px;
+    }
+    /* width */
+.encourage::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+.encourage::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.encourage::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.encourage::-webkit-scrollbar-thumb:hover {
+  background: #efefef;
+}
+  .chapter *{
+    text-align: left;
+  }
+  .chapter h3{
+    font-size: 1.4em;
+    padding: 0 0 0 30px;
+  }
+  .chapter ul{
+    margin: 10px 0 0 30px;
+    padding: 0 0 10px 30px;
+  }
+  .img_hero{
+    min-width: 300px;
+  }
+  .img_hero h2{
+    font-size: 2.4em;
+    margin-bottom: 20px;
+  }
+  .img_hero *{
+    color: #fff !important;
+  }
+  .img_hero ol{
+    padding-left: 40px;
+  }
+  .img_hero ol li{
+    text-align: left;
+  }
+  .img_hero ol li button{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: .2s color;
+  }
+  .img_hero ol li button:hover{
+    color: #a3a3a3 !important;
+  }
+  </style>
+</head>
+<body>
+  <section class="subpage-section">
+    <%- include('header'); -%>
+    <div class="img_hero">
+      <h2>Table of Contents</h2>
+      <ol type="I">
+        <li><button class="link">Introduction</button></li>
+        <li><button class="link">Used technologies</button></li>
+        <li><button class="link">Usage tracking & ads</button></li>
+        <li><button class="link">Images/Graphics</button></li>
+        <li><button class="link">Database</button></li>
+      </ol>
+    </div>
+    <div class="encourage">
+      <h1>About the project</h1>
+      <div class="chapter" id="Introduction">
+        <h2>Introduction</h2>
+        <p>This project started in September 2020, at the beginning of my final school year. After four years of Technical Secondary School I wanted to find out how much did I really learn. I took particural intrest in programming and especially full stack web development.</p>
+        <p>While learning JS quickly became my favourite programming language and I enjoyed making simple apps like calculator or sudoku. When I discovered Node.js I was thrilled how much I can do so I made uncomplicated chatapp and prototype of whether forcast service.</p>
+        <p>I wanted to do something bigger and more complete with attention to detail and something I could finally host online and proudly present to the world.</p>
+        <p>While going thru programing tutorials on yt I noticed that URL shortening app is quite popular beginniers project, so I thought about spicing this idea a little bit and do the opposite and make URL lengthening app.</p>
+        <h3>Goals:</h3>
+        <ul>
+          <li>design modern, mobile-first webapp</li>
+          <li>apply beutiful light-weight animations</li>
+          <li>use publiclly open api</li>
+          <li>implement database handeling</li>
+          <li>use professional grade hosting</li>
+        </ul>
+      </div>
+      <div class="chapter" id="Used-technologies">
+        <h2>Used technologies</h2>
+        <p>Main programing language of this project is <b>JS</b>. I used <b>Node.js</b> for backend with <b>express</b> framework and <b>EJS</b> for dynamic websites generation.</p>
+        <p>For database I chose <b>Mongodb</b> because I felt like it would be the best option based on it's popularity and excellent communication thru <b>Mongoose</b>.</p>
+        <p>During my school education I took part in contest "Knockout ransomware" organized by Cisco. Thanks to that I got to know the basics of cybersecurity. Since I am handling URLs submitted by users I became aware that my service could potentially become tool for somebody who whats to send a malicious link to unaware individual.</p>
+        <p>In order to combat that I implemented URL/IP retutation testing using publiclly open api. Firstly I used <b>Auth0's Signals</b> but I needed to change api provider to <b>AbuseIPDB</b> because Auth0's decided to end their open api service on Feb. 8, 2021.</p>
+        <p>I used <b>unirest</b> to mange api requests.</p>
+        <p>For frontend I used <b>vanila JS</b>, which handles form validation, AJAX request, most of the animation and other minor tasks</p>
+      </div>
+      <div class="chapter" id="Usage-tracking-&-ads">
+        <h2>Usage tracking & ads</h2>
+        <p>Currently there is no tracking implemented. I thing about building a simple website with stats collected thru my own node.js code like counting number of visits, sent requests to create new long url and so on.</p>
+        <p>I also consider using <b>Google Analytics</b> just to get to know them since they are the most commonly used tools for controling traffic on websites. Or I just wasn't able to find other popular alternatives.</p>
+        <p>I think that the next step would be to add <b>Google AdSense</b>. However monetization is not a consideration for me, I just want to see how it works.</p>
+      </div>
+      <div class="chapter">
+        <h2>Images/Graphics/Icons</h2>
+        <p>For most icons/images those big on landing pages an copying icon placed on button used to copy created long url I used artwork from <b>thenounproject.com</b></p>
+        <h3>Specifically:</h3>
+        <ul>
+          <li>"copy" icon by Adrien Coquet, FR, from thenounproject.com</li>
+          <li>"lost" icon by Pelin Kahraman, DE, from thenounproject.com</li>
+          <li>"Pencil" icon by Elliot Midson, AU, from thenounproject.com</li>
+          <li>"Safety" by Ricki Tri Putra, ID, from thenounproject.com</li>
+          <li>"url" icon by Genius Icons, from thenounproject.com</li>
+        </ul>
+        <p>Secound sorce of icons for this project is <b>fontawesome.com</b>. You can see them on contact me subpage.</p>
+        <p>Last by not least I made some images myself. favicon, waves and plus/minus icon were created in opensource vector graphics sofware <b>Inkscape</b>.</p>
+      </div>
+      <div class="chapter">
+        <h2>Database</h2>
+        <p>Previously I used mySQL with PHP and redis with Node.js as cache for whether app so MongoDB was something new for me.</p>
+        <p>Thanks to JSON data format, which I am familiar with thanks to quiz game I built in JS, I had no problem to store and retrieve data.</p>
+        <p>I use single collection which stores destination URL("string"), long code which is used to retireve destination URL("string") and security object("object") which keeps safety rating based on external api and date when this rating was last checked.</p>
+        <p>There is a room for improvemnt in a way I manage data, because if one user wants to create 50 character long url for google.com and another 100 character long url for google.com my program will request safety rating twice even if asked for it minutes ago. I plan to divide data into tho collection one with safety rating and URL for which this rating was given and secound collection with destination URL and long codes generated for users. This approach would help me to make less requests and stop duplicating data.</p>
+      </div>
+    </div>
+  </section>
+  <%- include('footer'); -%>
+  <script>
+    const chapters = document.querySelectorAll(".chapter");
+    const move_btns =  Array.prototype.slice.call(document.querySelectorAll("button.link"));
+
+    for (let i = 0; i < move_btns.length; i++) {
+      move_btns[i].addEventListener('click', moveToChapter)
+    }
+    function moveToChapter(e){
+      let n = move_btns.indexOf(e.currentTarget)
+      scrollParentToChild(document.querySelector('.encourage'), chapters[n])
+    }
+      function scrollParentToChild(parent, child) {
+        // Where is the parent on page
+        var parentRect = parent.getBoundingClientRect();
+        // What can you see?
+        var parentViewableArea = {
+          height: parent.clientHeight,
+          width: parent.clientWidth
+        };
+
+        // Where is the child
+        var childRect = child.getBoundingClientRect();
+        // Is the child viewable?
+        var isViewable = (childRect.top == parentRect.top);
+
+        // if you can't see the child try to scroll parent
+        if (!isViewable) {
+          // scroll by offset relative to parent
+          parent.scrollTop = (childRect.top + parent.scrollTop) - parentRect.top
+        }
+    }
+
+  </script>
+</body>
+</html>

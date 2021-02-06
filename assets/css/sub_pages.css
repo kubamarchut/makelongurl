@@ -10,7 +10,7 @@ body{
 }
 footer{
   background: #fff;
-  background: linear-gradient(0deg, rgba(255,255,255,1) 60%, rgba(0,0,0,0) 60%);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 55%, rgba(0,0,0,0) 55%);
   color: #090c9b;
 }
 footer .wave{

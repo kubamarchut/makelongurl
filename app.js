@@ -86,7 +86,10 @@ app.get('/:urlCode', async function(req, res) {
     }
   }
   else if(listofsubpage.indexOf(param) != -1){
-    res.render(param);
+    if(listofsubpage.indexOf(param) == 2) res.render(param);
+    else{
+      res.render("long-text", {type: param})
+    }
   }
 });
 

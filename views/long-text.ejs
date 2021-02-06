@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/cbd9dddf9b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/sub_pages.css">
+  <title>terms of usage- makelongurl</title>
+  <style>
+    section{
+      grid-template-areas:
+        "header header"
+        "logo paragraph"
+        "logo paragraph"
+        ". ." !important;
+    }
+    .far, .fab{
+      font-size: 2rem;
+      vertical-align: middle;
+      padding: 0 0 5px 0;
+      margin: 0 5px 0 0;
+    }
+    .encourage p:first-of-type{
+      margin: 10px 0 20px 0;
+    }
+    h1, .encourage h2, h3{
+      color: #090c9b !important;
+    }
+    .encourage{
+      padding: 0;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      position: relative;
+      margin-top: 50px;
+      height: calc(100% - 50px);
+      overflow: auto;
+      align-self: start;
+      scroll-behavior: smooth;
+    }
+    .encourage h2{
+      margin: 0;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      padding: 1rem 30px;
+      background: #fff;
+      font-size: 1.8em;
+      box-shadow: 0 5px 10px -10px #3d3d3d;
+    }
+    .encourage h1{
+      margin: 30px 30px 0;
+    }
+    .encourage p{
+      margin: 0 !important;
+      padding: 10px 30px 20px;
+    }
+    /* width */
+.encourage::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+.encourage::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.encourage::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.encourage::-webkit-scrollbar-thumb:hover {
+  background: #efefef;
+}
+  .chapter *{
+    text-align: left;
+  }
+  .chapter h3{
+    font-size: 1.4em;
+    padding: 0 0 0 30px;
+  }
+  .chapter ul{
+    margin: 10px 0 0 30px;
+    padding: 0 0 10px 30px;
+  }
+  .img_hero{
+    min-width: 300px;
+  }
+  .img_hero h2{
+    font-size: 2.4em;
+    margin-bottom: 20px;
+  }
+  .img_hero *{
+    color: #fff !important;
+  }
+  .img_hero ol{
+    padding-left: 40px;
+  }
+  .img_hero ol li{
+    text-align: left;
+  }
+  .img_hero ol li button{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: .2s color;
+  }
+  .img_hero ol li button:hover{
+    color: #a3a3a3 !important;
+  }
+  </style>
+</head>
+<body>
+  <section class="subpage-section">
+    <%- include('header'); -%>
+    <div class="img_hero">
+      <h2>Table of Contents</h2>
+      <ol type="I">
+
+      </ol>
+    </div>
+    <div class="encourage">
+      <%- include(type); -%>
+    </div>
+  </section>
+  <%- include('footer'); -%>
+  <script>
+    const listofBTNs = document.querySelector("ol");
+    const chapters = document.querySelectorAll(".chapter");
+    const move_btns = [];
+    for (let i = 0; i < chapters.length; i++) {
+      let name = chapters[i].querySelector("h2").innerHTML;
+      let button = document.createElement("button");
+      button.innerHTML = name;
+      button.classList.add("link");
+      let list_elem = document.createElement("li");
+      list_elem.appendChild(button);
+      listofBTNs.appendChild(list_elem);
+      move_btns.push(button);
+      button.addEventListener('click', moveToChapter)
+    }
+
+    function moveToChapter(e){
+      let n = move_btns.indexOf(e.currentTarget)
+      scrollParentToChild(document.querySelector('.encourage'), chapters[n])
+    }
+      function scrollParentToChild(parent, child) {
+        // Where is the parent on page
+        var parentRect = parent.getBoundingClientRect();
+        // What can you see?
+        var parentViewableArea = {
+          height: parent.clientHeight,
+          width: parent.clientWidth
+        };
+
+        // Where is the child
+        var childRect = child.getBoundingClientRect();
+        // Is the child viewable?
+        var isViewable = (childRect.top == parentRect.top);
+
+        // if you can't see the child try to scroll parent
+        if (!isViewable) {
+          // scroll by offset relative to parent
+          parent.scrollTop = (childRect.top + parent.scrollTop) - parentRect.top
+        }
+    }
+
+  </script>
+</body>
+</html>

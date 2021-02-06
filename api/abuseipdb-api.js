@@ -31,7 +31,7 @@ const checkUrl = function(urlToBeChecked){
           }
           else{
             console.log(res.body);
-            resolve(Math.floor((res.body.data.abuseConfidenceScore-25)/25))
+            resolve(Math.floor(res.body.data.abuseConfidenceScore/25))
           }
         });
     }).catch(()=>{reject(false)})

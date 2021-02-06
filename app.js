@@ -55,7 +55,8 @@ app.get('/:urlCode', async function(req, res) {
         }
         else{
           let ratingdes = ['safe', 'potentially harmful', 'not safe', 'dangerous']
-          res.render("redirect", {url: destUrl, rating: ratingdes[rating * -1].replace(' ', '-'), ratingDes: ratingdes[rating * -1]});
+          rating = rating > 3 ? 3 : rating;
+          res.render("redirect", {url: destUrl, rating: ratingdes[rating].replace(' ', '-'), ratingDes: ratingdes[rating]});
         }
         console.log("Found".green, String(param + " -> " + destUrl).cyan, "with", "current".green, "security rating")
       }
@@ -110,7 +111,8 @@ app.post('/createNewUrl', async function(req, res){
     let urlCode = generateString(data.urlLength);
     let foundWithSameCode = handlingDb.findInDb({urlCode: urlCode});
     while(foundWithSameCode.length == 0){
-      let urlCode = generateString(data.urlLength);
+      urlCode = generateString(data.urlLength);
+      foundWithSameCode = handlingDb.findInDb({urlCode: urlCode});
     }
     console.log("Acquiring safety rating");
     let isItReal = auth0Api.checkUrl(data.destUrl);

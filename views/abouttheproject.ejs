@@ -1,10 +1,10 @@
       <h1>About the project</h1>
       <div class="chapter" id="Introduction">
         <h2>Introduction</h2>
-        <p>This project started in September 2020, at the beginning of my final school year. After four years of Technical Secondary School I wanted to find out how much did I really learn. I took particural intrest in programming and especially full stack web development.</p>
-        <p>While learning JS quickly became my favourite programming language and I enjoyed making simple apps like calculator or sudoku. When I discovered Node.js I was thrilled how much I can do so I made uncomplicated chatapp and prototype of whether forcast service.</p>
+        <p>This project started in September 2020, at the beginning of my final school year. After four years of Technical Secondary School I wanted to find out how much I really learned. I took particular interest in programming and especially full stack web development.</p>
+        <p>While learning JS quickly became my favourite programming language and I enjoyed making simple apps like calculator or sudoku. When I discovered Node.js I was thrilled how much I can do so I made an uncomplicated chat app and prototype of a weather forecast service.</p>
         <p>I wanted to do something bigger and more complete with attention to detail and something I could finally host online and proudly present to the world.</p>
-        <p>While going thru programing tutorials on yt I noticed that URL shortening app is quite popular beginniers project, so I thought about spicing this idea a little bit and do the opposite and make URL lengthening app.</p>
+        <p>While going through programming tutorials on yt I noticed that URL shortening apps are quite popular beginners projects, so I thought about spicing this idea a little bit and doing the opposite and making a URL lengthening app.</p>
         <h3>Goals:</h3>
         <ul>
           <li>design modern, mobile-first webapp</li>
@@ -17,16 +17,16 @@
       <div class="chapter" id="Used-technologies">
         <h2>Used technologies</h2>
         <p>Main programing language of this project is <b>JS</b>. I used <b>Node.js</b> for backend with <b>express</b> framework and <b>EJS</b> for dynamic websites generation.</p>
-        <p>For database I chose <b>Mongodb</b> because I felt like it would be the best option based on it's popularity and excellent communication thru <b>Mongoose</b>.</p>
-        <p>During my school education I took part in contest "Knockout ransomware" organized by Cisco. Thanks to that I got to know the basics of cybersecurity. Since I am handling URLs submitted by users I became aware that my service could potentially become tool for somebody who whats to send a malicious link to unaware individual.</p>
-        <p>In order to combat that I implemented URL/IP retutation testing using publiclly open api. Firstly I used <b>Auth0's Signals</b> but I needed to change api provider to <b>AbuseIPDB</b> because Auth0's decided to end their open api service on Feb. 8, 2021.</p>
+        <p>For the database I chose <b>Mongodb</b> because I felt like it would be the best option based on its popularity and excellent communication through <b>Mongoose</b>.</p>
+        <p>During my school education I took part in a contest "Knockout ransomware" organized by Cisco. Thanks to that I got to know the basics of cybersecurity. Since I am handling URLs submitted by users I became aware that my service could potentially become a tool for somebody who wants to send a malicious link to an unaware individual.</p>
+        <p>In order to combat that I implemented URL/IP reputation testing using publicly open api. Firstly I used <b>Auth0's Signals</b> but I needed to change api provider to <b>AbuseIPDB</b> because Auth0's decided to end their open api service on Feb. 8, 2021.</p>
         <p>I used <b>unirest</b> to mange api requests.</p>
         <p>For frontend I used <b>vanila JS</b>, which handles form validation, AJAX request, most of the animation and other minor tasks</p>
       </div>
       <div class="chapter" id="Usage-tracking-&-ads">
         <h2>Usage tracking & ads</h2>
-        <p>Currently there is no tracking implemented. I thing about building a simple website with stats collected thru my own node.js code like counting number of visits, sent requests to create new long url and so on.</p>
-        <p>I also consider using <b>Google Analytics</b> just to get to know them since they are the most commonly used tools for controling traffic on websites. Or I just wasn't able to find other popular alternatives.</p>
+        <p>Currently there is no tracking implemented. I am thinking about building a simple website with stats collected through my own node.js code like counting the number of visits, sending requests to create new long urls and so on.</p>
+        <p>I also consider using <b>Google Analytics</b> just to get to know them since they are the most commonly used tools for controlling traffic on websites. Or I just wasn't able to find other popular alternatives.</p>
         <p>I think that the next step would be to add <b>Google AdSense</b>. However monetization is not a consideration for me, I just want to see how it works.</p>
       </div>
       <div class="chapter">
@@ -40,13 +40,13 @@
           <li>"Safety" by Ricki Tri Putra, ID, from thenounproject.com</li>
           <li>"url" icon by Genius Icons, from thenounproject.com</li>
         </ul>
-        <p>Secound sorce of icons for this project is <b>fontawesome.com</b>. You can see them on contact me subpage.</p>
-        <p>Last by not least I made some images myself. favicon, waves and plus/minus icon were created in opensource vector graphics sofware <b>Inkscape</b>.</p>
+        <p>Second source of icons for this project is <b>fontawesome.com</b>. You can see them on the contact me subpage.</p>
+        <p>Last but not least I made some images myself. favicon, waves and plus/minus icon were created in <b>Inkscape</b> an open source vector graphics software.</p>
       </div>
       <div class="chapter">
         <h2>Database</h2>
-        <p>Previously I used mySQL with PHP and redis with Node.js as cache for whether app so MongoDB was something new for me.</p>
-        <p>Thanks to JSON data format, which I am familiar with thanks to quiz game I built in JS, I had no problem to store and retrieve data.</p>
-        <p>I use single collection which stores destination URL("string"), long code which is used to retireve destination URL("string") and security object("object") which keeps safety rating based on external api and date when this rating was last checked.</p>
-        <p>There is a room for improvemnt in a way I manage data, because if one user wants to create 50 character long url for google.com and another 100 character long url for google.com my program will request safety rating twice even if asked for it minutes ago. I plan to divide data into tho collection one with safety rating and URL for which this rating was given and secound collection with destination URL and long codes generated for users. This approach would help me to make less requests and stop duplicating data.</p>
+        <p>Previously I used mySQL with PHP and redis with Node.js as cache for a weather app so MongoDB was something new for me.</p>
+        <p>Thanks to the JSON data format, which I am familiar with thanks to the quiz game I built in JS, I had no problem storing and retrieving data.</p>
+        <p>I use a single collection which stores destination URL("string"), long code which is used to retrieve destination URL("string") and security object("object") which keeps safety rating based on external api and date when this rating was last checked.</p>
+        <p>There is room for improvement in the way I manage data, because if one user wants to create a 50 character long url for google.com and another 100 character long url for google.com my program will request a safety rating twice even if asked for it minutes ago. I plan to divide data into tho collection one with safety rating and URL for which this rating was given and second collection with destination URL and long codes generated for users. This approach would help me to make less requests and stop duplicating data.</p>
       </div>

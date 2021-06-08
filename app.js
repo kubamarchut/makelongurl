@@ -77,7 +77,7 @@ app.get('/:urlCode', async function(req, res) {
         }
         else{
           let ratingdes = ['safe', 'potentially harmful', 'not safe', 'dangerous']
-          res.render("redirect", {url: destUrl, rating: ratingdes[rating * -1].replace(' ', '-'), ratingDes: ratingdes[rating * -1]});
+          res.render("redirect", {url: destUrl, rating: ratingdes[rating].replace(' ', '-'), ratingDes: ratingdes[rating * -1]});
         }
       }
     }

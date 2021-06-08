@@ -12,9 +12,10 @@
     section{
       grid-template-areas:
         "header header"
-        "logo paragraph"
-        "logo paragraph"
-        ". ." !important;
+        "logo logo"
+        "paragraph paragraph"
+        !important;
+      grid-template-rows: 1fr auto auto !important;
     }
     .far, .fab{
       font-size: 2rem;
@@ -34,72 +35,70 @@
       background: #fff;
       color: #000;
       position: relative;
-      margin-top: 50px;
-      height: calc(100% - 50px);
+      margin-top: 0px;
+      height: 100%;
       overflow: auto;
       align-self: start;
       scroll-behavior: smooth;
+      width: calc(100vw - 40px);
     }
     .encourage h2{
       margin: 0;
       text-align: left;
       position: sticky;
       top: 0;
-      padding: 1rem 30px;
+      padding: 1rem 15px;
       background: #fff;
-      font-size: 1.8em;
+      font-size: 1.4em;
       box-shadow: 0 5px 10px -10px #3d3d3d;
+
+      word-wrap: break-word;
     }
     .encourage h1{
-      margin: 30px 30px 0;
+      margin: 15px 15px 0;
     }
     .encourage p{
       margin: 0 !important;
-      padding: 10px 30px 20px;
+      padding: 10px 15px 20px;
     }
-    /* width */
-.encourage::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* Track */
-.encourage::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-.encourage::-webkit-scrollbar-thumb {
-  background: #c9c9c9;
-  border-radius: 15px;
-}
-
-/* Handle on hover */
-.encourage::-webkit-scrollbar-thumb:hover {
-  background: #efefef;
-}
   .chapter *{
     text-align: left;
   }
   .chapter h3{
-    font-size: 1.4em;
+    font-size: 1.3em;
     padding: 0 0 0 30px;
   }
   .chapter ul{
     margin: 10px 0 0 30px;
     padding: 0 0 10px 30px;
   }
+  .chapter ul li{
+    font-size: 1rem;
+  }
   .img_hero{
-    min-width: 300px;
+    width: 100%;
+    text-align: left;
+    align-self: center !important;
+    padding: 0 10px 10px 0;
+    position: relative;
+  }
+  .img_hero .list_wrapper{
+    overflow: auto;
+    max-height: 0;
+    transition: .3s max-height;
   }
   .img_hero h2{
-    font-size: 2.4em;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    margin: 10px 0 5px 0;
+    text-align: left;
   }
   .img_hero *{
     color: #fff !important;
   }
   .img_hero ol{
-    padding-left: 40px;
+    padding-left: 2em;
+    transform: translateY(-100%);
+    transition: .3s transform;
   }
   .img_hero ol li{
     text-align: left;
@@ -109,12 +108,107 @@
     border: none;
     padding: 0!important;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: .9em;
     transition: .2s color;
   }
   .img_hero ol li button:hover{
     color: #a3a3a3 !important;
   }
+  button.toggle-nav{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    font-weight: bold;
+    z-index: 100;
+    transform: rotateX(0deg);
+    transition: .3s transform;
+  }
+  button.toggle-nav.open{
+    transform: rotateX(-180deg);
+  }
+  .list_wrapper.open{
+    max-height: 300px;
+  }
+  .list_wrapper.open ol{
+    transform: translateY(0);
+  }
+  .chapter p {
+    font-size: 1rem;
+  }
+
+    @media (min-width: 48em) {
+      section{
+        grid-template-areas:
+          "header header"
+          "logo paragraph"
+          "logo paragraph"
+          ". ." !important;
+      }
+      .encourage{
+        height: calc(100% - 50px);
+        margin-top: 50px;
+        width: auto;
+        max-width: 1250px;
+      }
+      .encourage h1{
+        margin: 30px 30px 0;
+      }
+      .encourage h2{
+        font-size: 1.8em;
+        padding: 1rem 30px;
+      }
+      .encourage p{
+        margin: 0 !important;
+        padding: 10px 30px 20px;
+      }
+      /* width */
+      .encourage::-webkit-scrollbar {
+        width: 10px;
+      }
+      /* Track */
+      .encourage::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      .encourage::-webkit-scrollbar-thumb {
+        background: #c9c9c9;
+        border-radius: 15px;
+      }
+
+      /* Handle on hover */
+      .encourage::-webkit-scrollbar-thumb:hover {
+        background: #efefef;
+      }
+      .img_hero{
+        width: auto;
+        min-width: 300px;
+      }
+      .img_hero h2{
+        font-size: 2.4em;
+        margin: 0 0 20px 0;
+      }
+      button.toggle-nav{
+        display: none;
+      }
+      .list_wrapper{
+        max-height: 300px !important;
+      }
+      .list_wrapper ol{
+        transform: translateY(0);
+      }
+      .img_hero ol li button{
+        font-size: 1.1em;
+      }
+      .chapter p {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -122,9 +216,12 @@
     <%- include('header'); -%>
     <div class="img_hero">
       <h2>Table of Contents</h2>
-      <ol type="I">
+      <button class="toggle-nav"><i class="fas fa-angle-down"></i></button>
+      <div class="list_wrapper">
+        <ol type="I">
 
-      </ol>
+        </ol>
+      </div>
     </div>
     <div class="encourage">
       <%- include(type); -%>
@@ -164,7 +261,10 @@
         var childRect = child.getBoundingClientRect();
         // Is the child viewable?
         var isViewable = (childRect.top == parentRect.top);
-
+        if(listofBTNs.parentElement.classList.contains('open')){
+          listofBTNs.parentElement.classList.remove('open')
+          closeBTN.classList.toggle('open');
+        }
         // if you can't see the child try to scroll parent
         if (!isViewable) {
           // scroll by offset relative to parent
@@ -172,6 +272,15 @@
         }
     }
 
+      const closeBTN = document.querySelector("button.toggle-nav");
+      closeBTN.parentElement.childNodes[1].addEventListener('click', ()=>{
+        listofBTNs.parentElement.classList.toggle('open');
+        closeBTN.classList.toggle('open');
+      })
+      closeBTN.addEventListener('click', ()=>{
+        listofBTNs.parentElement.classList.toggle('open');
+        closeBTN.classList.toggle('open');
+      })
   </script>
 </body>
 </html>

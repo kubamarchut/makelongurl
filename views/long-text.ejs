@@ -7,7 +7,14 @@
   <script src="https://kit.fontawesome.com/cbd9dddf9b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/sub_pages.css">
-  <title>terms of usage- makelongurl</title>
+  <title>
+    <% if ( type == 'termsofusage' ) { %>
+    terms of usage
+    <% } else { %>
+    about the project
+    <% } %>
+     - makelongurl
+  </title>
   <style>
     section{
       grid-template-areas:
@@ -46,13 +53,14 @@
       margin: 0;
       text-align: left;
       position: sticky;
-      top: 0;
-      padding: 1rem 15px;
+      top: -1px;
+      padding: 1.5rem 15px .7rem;
       background: #fff;
       font-size: 1.4em;
-      box-shadow: 0 5px 10px -10px #3d3d3d;
-
       word-wrap: break-word;
+    }
+    .encourage h2.is-pinned{
+      box-shadow: 0 5px 10px -10px #3d3d3d;
     }
     .encourage h1{
       margin: 15px 15px 0;
@@ -66,7 +74,7 @@
   }
   .chapter h3{
     font-size: 1.3em;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 15px;
   }
   .chapter ul{
     margin: 10px 0 0 30px;
@@ -74,6 +82,9 @@
   }
   .chapter ul li{
     font-size: 1rem;
+  }
+  .chapter>ul>li>p{
+    padding-left: 0;
   }
   .img_hero{
     width: 100%;
@@ -160,7 +171,7 @@
       }
       .encourage h2{
         font-size: 1.8em;
-        padding: 1rem 30px;
+        padding: 1.5rem 30px .7rem;
       }
       .encourage p{
         margin: 0 !important;
@@ -207,6 +218,9 @@
       }
       .chapter p {
         font-size: 1.1rem;
+      }
+      .chapter h3{
+        padding: 0 0 0 30px;
       }
     }
   </style>

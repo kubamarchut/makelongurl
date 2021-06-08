@@ -15,7 +15,8 @@ footer{
 }
 footer .wave{
   transform: rotate(0deg);
-  top: 1px;
+  top: 2px;
+  bottom: -2px;
 }
 footer *{
   color: #090c9b !important;

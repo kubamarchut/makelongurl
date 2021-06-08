@@ -1,0 +1,38 @@
+{
+  "name": "makelongurl",
+  "version": "0.0.1",
+  "description": "simple url lengthening app",
+  "main": "app.js",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "nodemon": "^2.0.4",
+    "serve-favicon": "^2.5.0",
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubamarchut/makelongurl.git"
+  },
+  "keywords": [
+    "url",
+    "api",
+    "ip",
+    "security",
+    "webapp"
+  ],
+  "author": "Jakub Marchut",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kubamarchut/makelongurl/issues"
+  },
+  "homepage": "https://github.com/kubamarchut/makelongurl#readme"
+}

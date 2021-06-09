@@ -17,6 +17,7 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const colors = require('colors');
+const robots = require('express-robots-txt');
 const handlingDb = require('./db/handling-db.js');
 const auth0Api = require('./api/abuseipdb-api.js');
 
@@ -29,6 +30,7 @@ const PORT = process.env.PORT || 80;
 var server = app.listen(PORT, console.log('WebServer'.magenta, 'started'.green, 'on port', String(PORT).cyan));
 
 app.set('view engine', 'ejs');
+app.use(robots({ UserAgent: '*', Allow: '/' }))
 app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico')))
 app.use('/assets', express.static('assets'));
 app.use(bodyparser.json());

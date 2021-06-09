@@ -11,6 +11,13 @@ function getDate(){
   var date = new Date();
   return date.toUTCString();
 }
+function setHttp(link) {
+    if (link.search(/^http[s]?\:\/\//) == -1) {
+        link = 'http://' + link;
+    }
+    return link
+}
+
 const express = require('express');
 const favicon = require('serve-favicon')
 const bodyparser = require('body-parser');
@@ -122,7 +129,7 @@ app.post('/createNewUrl', async function(req, res){
       foundWithSameCode = handlingDb.findInDb({urlCode: urlCode});
     }
     console.log("Acquiring safety rating");
-    let domain = (new URL(data.destUrl));
+    let domain = (new URL(setHttp(data.destUrl)));
     domain = domain.hostname
     console.log(domain);
     let isItReal = auth0Api.checkUrl(domain);

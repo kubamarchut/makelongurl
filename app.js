@@ -120,14 +120,17 @@ app.post('/createNewUrl', async function(req, res){
       foundWithSameCode = handlingDb.findInDb({urlCode: urlCode});
     }
     console.log("Acquiring safety rating");
-    let isItReal = auth0Api.checkUrl(data.destUrl);
+    let domain = (new URL(data.destUrl));
+    domain = domain.hostname
+    console.log(domain);
+    let isItReal = auth0Api.checkUrl(domain);
     isItReal.then((rate)=>{
       let safetyRating = {
         rating: rate,
         ratingDate: Date.now()
       }
       console.log("Saving recipe to DB")
-      let doneSaving = handlingDb.saveToDb(data.destUrl, urlCode, safetyRating)
+      let doneSaving = handlingDb.saveToDb(data.destUrl.replace(/(^\w+:|^)\/\//, ''), urlCode, safetyRating)
       doneSaving.then(()=>{
         res.send({'error': false, 'msg': urlCode})
         console.log("Successfully".green, "saved new recipe on", "DB".magenta)

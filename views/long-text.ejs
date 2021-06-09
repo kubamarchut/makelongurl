@@ -58,16 +58,32 @@
       background: #fff;
       font-size: 1.4em;
       word-wrap: break-word;
+      background-color: #fff;
+      z-index: 0;
     }
-    .encourage h2.is-pinned{
-      box-shadow: 0 5px 10px -10px #3d3d3d;
+    .encourage h2:after{
+      content: '';
+      position: absolute;
+      top: 0; left: 1%;
+      width: 98%;
+      height: 100%;
+      z-index: -2;
+      box-shadow: 0 16px 20px -20px #3d3d3d;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: .15s opacity .05s, .2s transform 0s;
+    }
+    .encourage h2.is-pinned:after{
+      opacity: 1;
+      transform: scaleX(1);
+      transition: .05s opacity 0s, .2s transform 0s;
     }
     .encourage h1{
       margin: 15px 15px 0;
     }
     .encourage p{
       margin: 0 !important;
-      padding: 10px 15px 20px;
+      padding: 0 15px 10px;
     }
   .chapter *{
     text-align: left;
@@ -85,6 +101,9 @@
   }
   .chapter>ul>li>p{
     padding-left: 0;
+  }
+  .chapter p:first-of-type{
+    margin-top: .5rem !important;
   }
   .img_hero{
     width: 100%;
@@ -175,7 +194,7 @@
       }
       .encourage p{
         margin: 0 !important;
-        padding: 10px 30px 20px;
+        padding: 0 30px 10px;
       }
       /* width */
       .encourage::-webkit-scrollbar {

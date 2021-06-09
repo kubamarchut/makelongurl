@@ -9,8 +9,8 @@ const restartBTN = document.querySelector('.new-one');
 const LimitValues = [5, 1024]
 
 restartBTN.addEventListener('click',()=>{
-	addRemClass(modal, "open", "rem")
-	addRemClass(page, "show", "rem")
+	addRemClass(modal, "open", "rem");
+	setTimeout(()=>addRemClass(page, "show", "rem"), 400);
 })
 
 function checkLenInput(t){

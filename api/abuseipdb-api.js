@@ -30,7 +30,6 @@ const checkUrl = function(urlToBeChecked){
             reject(err)
           }
           else{
-            console.log(res.body);
             resolve(Math.floor(res.body.data.abuseConfidenceScore/25))
           }
         });

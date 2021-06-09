@@ -34,12 +34,14 @@ app.use('/assets', express.static('assets'));
 app.use(bodyparser.json());
 
 app.get('/', function(req, res) {
+  console.log("New visit on index".green);
   res.render('index');
 });
 app.get('/favicon.ico', function(req, res) {
   res.sendFile(path.join(__dirname + "/assets/favicon.ico"));
 });
 app.get('/:urlCode', async function(req, res) {
+  console.log("New req".green);
   let param = req.params.urlCode;
   if(param[0] != '#' && param.length > 0 && listofsubpage.indexOf(param) == -1){
     console.log("Requesting".yellow, "redirection with code", String(param).cyan)

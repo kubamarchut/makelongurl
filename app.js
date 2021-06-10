@@ -111,7 +111,7 @@ app.post('/createNewUrl', async function(req, res){
   let data = req.body;
   let foundWithSameDestUrl = await handlingDb.findInDb({destUrl: data.destUrl});
   let saveNewQuery = true;
-  console.log("Searching for duplicates");
+  console.log("Searching for duplicates of", data.destUrl);
   if(foundWithSameDestUrl.length > 0){
     for (var i = 0; i < foundWithSameDestUrl.length; i++) {
       if(foundWithSameDestUrl[i].urlCode.length == data.urlLength){

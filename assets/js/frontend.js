@@ -5,13 +5,15 @@ const lenInput = lenPicker.querySelector("input")
 const resCp = document.querySelector(".resCp")
 const resInput = resCp.querySelector("input")
 const page = document.querySelectorAll(".page")[1]
-const restartBTN = document.querySelector('.new-one');
+const restartBTNs = document.querySelectorAll('.new-one');
 const LimitValues = [5, 1024]
 
-restartBTN.addEventListener('click',()=>{
-	addRemClass(modal, "open", "rem");
-	setTimeout(()=>addRemClass(page, "show", "rem"), 400);
-})
+for(button of restartBTNs){
+	button.addEventListener('click',()=>{
+		addRemClass(modal, "open", "rem");
+		setTimeout(()=>addRemClass(page, "show", "rem"), 400);
+	})
+};
 
 function checkLenInput(t){
 	console.log('checking');

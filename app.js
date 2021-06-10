@@ -25,6 +25,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const colors = require('colors');
 const robots = require('express-robots-txt');
+require('log-timestamp');
+
 const handlingDb = require('./db/handling-db.js');
 const auth0Api = require('./api/abuseipdb-api.js');
 
@@ -50,7 +52,6 @@ app.get('/favicon.ico', function(req, res) {
   res.sendFile(path.join(__dirname + "/assets/favicon.ico"));
 });
 app.get('/:urlCode', async function(req, res) {
-  console.log("New req".green);
   let param = req.params.urlCode;
   if(param[0] != '#' && param.length > 0 && listofsubpage.indexOf(param) == -1){
     console.log("Requesting".yellow, "redirection with code", String(param).cyan)
@@ -93,10 +94,12 @@ app.get('/:urlCode', async function(req, res) {
       }
     }
     else{
+      console.log("New visit on".green, "not found");
       res.render("url-not-found");
     }
   }
   else if(listofsubpage.indexOf(param) != -1){
+    console.log("New visit on".green, param);
     if(listofsubpage.indexOf(param) == 2) res.render(param);
     else{
       res.render("long-text", {type: param})

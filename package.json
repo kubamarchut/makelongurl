@@ -9,6 +9,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-robots-txt": "^0.5.0",
+    "log-timestamp": "^0.3.0",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
     "serve-favicon": "^2.5.0",

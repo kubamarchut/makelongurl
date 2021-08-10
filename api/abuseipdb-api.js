@@ -14,7 +14,7 @@ function lookup(domain) {
     })
   })
 }
-
+console.log(process.env.ABUSEIPDB_APIKEY);
 const checkUrl = function(urlToBeChecked){
   return new Promise((resolve, reject) => {
     let ip = lookup(urlToBeChecked);
@@ -22,7 +22,7 @@ const checkUrl = function(urlToBeChecked){
       let req = unirest("GET", api_url);
         req.headers({
           "accept": "application/json",
-          "key": "ee769908e8567d24965cdeba485e2e164106ade8016176eda6492741ce745f21b0e51b6c939f11ab"
+          "key": process.env.ABUSEIPDB_APIKEY
         });
         req.query({"ipAddress": res.address});
         req.end((res, err) => {

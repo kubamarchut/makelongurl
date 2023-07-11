@@ -1,4 +1,4 @@
-const stringGenerator = require('./generateString');
+const stringGenerator = require('../utilities/generateString');
 
 let expectedLength = 10;
 

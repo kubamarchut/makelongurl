@@ -30,6 +30,8 @@ require('log-timestamp');
 const handlingDb = require('./db/handling-db.js');
 const auth0Api = require('./api/abuseipdb-api.js');
 
+const { home } = require('./handlers');
+
 const listofsubpage = ["termsofusage", "abouttheproject", "contact"]
 
 const app = express();
@@ -44,10 +46,7 @@ app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico')))
 app.use('/assets', express.static('assets'));
 app.use(bodyparser.json());
 
-app.get('/', function(req, res) {
-  console.log("New visit on index".green);
-  res.render('index');
-});
+app.get('/', home);
 app.get('/favicon.ico', function(req, res) {
   res.sendFile(path.join(__dirname + "/assets/favicon.ico"));
 });

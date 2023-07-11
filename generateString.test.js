@@ -8,3 +8,10 @@ test(`string should be exactly ${expectedLength} long if ${expectedLength} is pa
 
     expect(gottenLength).toBe(expectedLength);
 })
+
+test(`string should be exactly ${expectedLength} long if ${expectedLength} is passed as argument`, ()=>{
+    let gottenString = stringGenerator.generateString(expectedLength);
+    let gottenLength = gottenString.length;
+
+    expect(gottenLength).toBe(expectedLength + 1);
+})

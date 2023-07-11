@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "nodemon app.js",
-    "test": "node app.js",
+    "test": "jest",
     "start": "node app.js"
   },
   "repository": {
@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/kubamarchut/makelongurl/issues"
   },
-  "homepage": "https://github.com/kubamarchut/makelongurl#readme"
+  "homepage": "https://github.com/kubamarchut/makelongurl#readme",
+  "devDependencies": {
+    "jest": "^29.6.1"
+  }
 }

@@ -14,7 +14,7 @@ function lookup(domain) {
     })
   })
 }
-console.log(process.env.ABUSEIPDB_APIKEY);
+console.log("Api key", process.env.ABUSEIPDB_APIKEY);
 const checkUrl = function(urlToBeChecked){
   return new Promise((resolve, reject) => {
     let ip = lookup(urlToBeChecked);
@@ -33,7 +33,10 @@ const checkUrl = function(urlToBeChecked){
             resolve(Math.floor(res.body.data.abuseConfidenceScore/25))
           }
         });
-    }).catch(()=>{reject(false)})
+    }).catch((err)=>{
+      console.log(err);
+      reject(false)
+    })
   })
 }
 module.exports = {

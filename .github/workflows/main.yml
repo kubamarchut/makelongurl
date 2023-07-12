@@ -30,7 +30,7 @@ jobs:
       
   contenarize:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: mini-dell
     steps:
       -
         name: Checkout

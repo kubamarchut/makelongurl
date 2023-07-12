@@ -30,7 +30,7 @@ jobs:
       
   contenarize:
     needs: build
-    runs-on: windows-latest
+    runs-on: linux-latest
     steps:
       -
         name: Checkout

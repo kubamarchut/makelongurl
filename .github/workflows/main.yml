@@ -1,4 +1,4 @@
-name: 'Testing defining actions'
+name: 'Basic actions'
 
 on:
   push:

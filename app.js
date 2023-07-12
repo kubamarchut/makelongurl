@@ -46,9 +46,18 @@ app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico')))
 app.use('/assets', express.static('assets'));
 app.use(bodyparser.json());
 
-app.get('/', home);
 app.get('/favicon.ico', function(req, res) {
   res.sendFile(path.join(__dirname + "/assets/favicon.ico"));
+});
+app.get('/', home);
+listofsubpage.forEach((subpage, index) => {
+  app.get(`/${subpage}`, (req, res) => {
+    console.log("New visit on".green, subpage);
+    if (index == 2) res.render(subpage);
+    else {
+      res.render("long-text", { type: subpage });
+    }
+  })
 });
 app.get('/:urlCode', async function(req, res) {
   let param = req.params.urlCode;
@@ -95,13 +104,6 @@ app.get('/:urlCode', async function(req, res) {
     else{
       console.log("New visit on".green, "not found");
       res.render("url-not-found");
-    }
-  }
-  else if(listofsubpage.indexOf(param) != -1){
-    console.log("New visit on".green, param);
-    if(listofsubpage.indexOf(param) == 2) res.render(param);
-    else{
-      res.render("long-text", {type: param})
     }
   }
 });

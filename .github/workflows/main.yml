@@ -30,7 +30,7 @@ jobs:
       
   contenarize:
     needs: build
-    runs-on: mini-dell
+    runs-on: self-hosted
     steps:
       -
         name: Checkout

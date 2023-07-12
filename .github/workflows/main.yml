@@ -45,7 +45,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v6
         name: Build & push Docker image
         with:
-          image: ${{ secrets.REGISTRY_USER }}/makelongurls
+          image: kubamarchut/makelongurl
           tags: v1, latest
           registry: makelongurl
           dockerfile: ./Dockerfile

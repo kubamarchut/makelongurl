@@ -41,11 +41,13 @@ jobs:
         with:
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v4
+    
+      - uses: mr-smithers-excellent/docker-build-push@v6
+        name: Build & push Docker image
         with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.REGISTRY_USER }}/makelongurl:latest
+          image: ${{ secrets.REGISTRY_USER }}/makelongurls
+          tags: v1, latest
+          registry: makelongurl
+          dockerfile: ./Dockerfile
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}

@@ -27,3 +27,16 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+      
+  contenarize:
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: docker info
+      - run: docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASSWORD }}
+      - run: docker build -f ./Dockerfile -t kubamarchut/makelongurl ..
+      - run: docker push kubamarchut/makelongurl

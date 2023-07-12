@@ -1,12 +1,3 @@
-function generateString(desiredLength){
-  let result           = '';
-  let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let charactersLength = characters.length;
-  for ( let i = 0; i < desiredLength; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
 function getDate(){
   var date = new Date();
   return date.toUTCString();
@@ -23,14 +14,15 @@ const favicon = require('serve-favicon')
 const bodyparser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
-const colors = require('colors');
 const robots = require('express-robots-txt');
+require('colors');
 require('log-timestamp');
 
 const handlingDb = require('./db/handling-db.js');
 const auth0Api = require('./api/abuseipdb-api.js');
 
 const { home } = require('./handlers');
+const { generateString } = require('./utilities/generateString.js');
 
 const listofsubpage = ["termsofusage", "abouttheproject", "contact"]
 

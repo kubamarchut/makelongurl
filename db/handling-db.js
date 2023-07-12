@@ -7,8 +7,9 @@ mongoose.connect(dbUrl, {
   useCreateIndex: true,
   useUnifiedTopology: true,
   useFindAndModify: false
-}, () => {
-  console.log("Successfully".green, "connected to" ,"DB".magenta);
+}, (err) => {
+  if (err) console.log("Could not".red, "connected to" ,"DB".magenta);
+  else console.log("Successfully".green, "connected to" ,"DB".magenta);
 });
 
 const UrlRecipe = mongoose.model('UrlRecipe', {

@@ -25,8 +25,8 @@ const UrlRecipe = mongoose.model('UrlRecipe', {
 })
 const findInDb = async function(object) {
   try{
-    return await UrlRecipe.find(object);
     console.log("Found".green, "data in", "DB".magenta)
+    return await UrlRecipe.find(object);
   }
   catch(err){
     console.error(err);

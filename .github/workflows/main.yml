@@ -49,3 +49,20 @@ jobs:
           registry: docker.io
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+
+  deploy:
+    needs: contenarize
+    runs-on: self-hosted
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      - 
+        name: Pull n run Docker container
+        uses: addnab/docker-run-action@v3
+        with:
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: docker.io
+          image: kubamarchut/makelongurl
+          run: echo "container started"

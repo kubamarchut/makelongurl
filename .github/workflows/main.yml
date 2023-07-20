@@ -49,6 +49,7 @@ jobs:
           registry: docker.io
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+          tags: kubamarchut/makelongurl:latest
 
   deploy:
     needs: contenarize

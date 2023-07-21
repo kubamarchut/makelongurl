@@ -11,10 +11,15 @@ services:
       - node-network
   mongoDB:
     image: "mongo"
+    volumes:
+      - mongodata:/data/db
     ports:
       - '27017:27017'
     networks:
       - node-network
+
+volumes:
+  mongodata:
 
 networks:
   node-network:

@@ -3,10 +3,14 @@ services:
     build: .
     ports:
       - "80:80"
+    depends_on: 
+      - mongoDB
     networks:
       - node-network
   mongoDB:
     image: "mongo"
+    ports:
+      - '27017:27017'
     networks:
       - node-network
 

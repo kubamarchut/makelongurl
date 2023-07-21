@@ -1,6 +1,6 @@
 services:
   web:
-    build: .
+    build: kubamarchut/makelongurl:latest
     ports:
       - "80:80"
     environment:

@@ -3,6 +3,8 @@ services:
     build: .
     ports:
       - "80:80"
+    environment:
+      ABUSEIPDB_APIKEY: ${ABUSEIPDB_APIKEY}
     depends_on: 
       - mongoDB
     networks:

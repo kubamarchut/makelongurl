@@ -66,12 +66,11 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}  
       -
         name: Pull Docker container
-        run: docker pull kubamarchut/makelongurl:latest
+        run: docker compose pull kubamarchut/makelongurl:latest
       -
         name: Run Docker container
         run: |
           if(docker ps -a -f name="makelongurl" --format '{{.Names}}') {docker stop makelongurl}
           if(docker ps -a -f name="makelongurl" --format '{{.Names}}') {docker rm makelongurl}
-    
-          docker run -d -p 80:80 --name makelongurl kubamarchut/makelongurl:latest
-    
+
+          docker compose up

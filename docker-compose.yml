@@ -2,6 +2,14 @@ services:
   web:
     build: .
     ports:
-      - "8000:5000"
-  mongo:
+      - "80:80"
+    networks:
+      - node-network
+  mongoDB:
     image: "mongo"
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
